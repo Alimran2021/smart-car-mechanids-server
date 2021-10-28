@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId
 require('dotenv').config()
 const cors = require('cors')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 const uri = `mongodb+srv://${process.env.API_USER}:${process.env.API_PASS}@cluster0.pdsxi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -55,7 +55,9 @@ app.get('/', (req, res) => {
     console.log('hitting server',)
     res.send('response')
 })
-
+app.get('first/', (req, res) => {
+    res.send('hello first')
+})
 app.listen(port, () => {
     console.log('listening to port', port)
 })
