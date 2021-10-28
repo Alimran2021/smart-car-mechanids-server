@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
     console.log('hitting server',)
     res.send('response')
 })
-app.get('first/', (req, res) => {
+app.get('/first', (req, res) => {
     res.send('hello first')
 })
 app.listen(port, () => {
